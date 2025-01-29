@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Newspaper HomePage{% endblock title %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+       <p>Hi {{ user.username }} !! You are {{ user.age }} years old.</p>
+       <p>
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Log Out">
+            </form>
+       </p>
+    {% else %}
+        <p>You are not Logged In</p>
+        <p><a href="{% url 'login' %}">Login</a>|
+            <a href="{% url 'signup' %}">Sign Up</a></p> 
+    {% endif %}
+
+{% endblock content %}
