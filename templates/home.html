@@ -12,6 +12,9 @@
                 <input type="submit" value="Log Out">
             </form>
        </p>
+       <p>
+            <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}"role="button">View all articles</a>
+        </p>
     {% else %}
         <p>You are not Logged In</p>
         <p><a href="{% url 'login' %}">Login</a>|
